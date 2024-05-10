@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content%}
+<h2>View Employee List</h2>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Emp.ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+      <th>Update</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in emp %}
+    <tr>
+      <th>{{i.emp_id}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.age}}</td>
+      <td>{{i.salary}}</td>
+      <td><a href="{% url 'emp_app:update' i.id %}" class="btn btn-primary">Update</a></td>
+      <td><a href="{% url 'emp_app:delete' i.id %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+{% endblock content%}
